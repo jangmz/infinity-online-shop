@@ -6,6 +6,15 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 
 function Root() {
   const location = useLocation()
+  const [numProducts, setNumProducts] = useState(0);
+
+  const incrementNumProducts = () => {
+    setNumProducts((prevNumProducts) => prevNumProducts + 1)
+  }
+
+  const decrementNumProducts = () => {
+    setNumProducts((prevNumProducts) => prevNumProducts - 1)
+  }
   
   // check if the current route is not the root route
   const isSubRoute = location.pathname !== "/"
@@ -21,7 +30,7 @@ function Root() {
             <Link to="shop">Shop</Link>
           </li>
           <li>
-            <Link to="cart">Cart</Link>
+            <Link to="cart">[Cart-icon] {numProducts}</Link>
           </li>
         </ul>
       </nav>
