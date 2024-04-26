@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Shop from "./components/shop.jsx"
 import ErrorPage from "./components/error-page.jsx"
-import './index.css'
+//import './index.css'
 import Cart from './components/cart.jsx'
 
 const router = createBrowserRouter([
