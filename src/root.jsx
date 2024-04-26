@@ -42,7 +42,7 @@ function Root() {
           </div>
         )}
 
-        <Outlet />
+        <Outlet context={cart}/>
       </div>
     </div>
   )

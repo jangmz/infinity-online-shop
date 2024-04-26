@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useOutletContext } from "react-router-dom"
 
-const Cart = (cart) => { // receives cart from root
+const Cart = () => { // receives cart from root
+    const [cart, setCart] = useOutletContext()
     
     return (
         <div>
