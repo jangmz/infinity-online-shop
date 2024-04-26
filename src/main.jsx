@@ -6,7 +6,6 @@ import Shop from "./components/shop.jsx"
 import ErrorPage from "./components/error-page.jsx"
 //import './index.css'
 import Cart from './components/cart.jsx'
-import ProductCardDialog from './components/productCardDialog.jsx'
 
 const router = createBrowserRouter([
   {
@@ -17,12 +16,6 @@ const router = createBrowserRouter([
       {
         path:"shop",
         element: <Shop />,
-        children: [
-          {
-            path: "product-card-dialog",
-            element: <ProductCardDialog />
-          }
-        ]
       },
       {
         path:"cart",

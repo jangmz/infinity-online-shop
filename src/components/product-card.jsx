@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import { Link, Outlet } from "react-router-dom"
 
 const ProductCard = ({ product }) => {
+    const [moreInfo, setMoreInfo] = useState(false)
+
+    const toggleInfo = () => {
+        setMoreInfo(prevMoreInfo => !prevMoreInfo)
+    }
+
     return (
         <div className="product-card">
             <img src={product.image} style={{ height: "100px", width: "auto" }}/>
             <h3>{product.title}</h3>
-            <p>Description</p>
+            {moreInfo && <p>{product.description}</p>}
             <p>{product.price}€</p>
             <div className="quantity-section">
                 {
@@ -20,9 +27,7 @@ const ProductCard = ({ product }) => {
                 <button>+</button>
             </div>
             <button>Add to cart</button>
-            <Link to="product-card-dialog">
-                <button>More information</button>
-            </Link>
+            <button onClick={toggleInfo}>More information</button>
         </div>
     )
 }
