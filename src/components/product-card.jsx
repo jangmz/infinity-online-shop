@@ -6,6 +6,13 @@ const ProductCard = () => {
             <p>Description</p>
             <p>Price</p>
             <div className="quantity-section">
+                {
+                    /* 
+                        implement calling to update state in root
+                                +
+                        implement state variable for quantity of each product
+                    */
+                }
                 <button>-</button>
                 <input type="number" value="1" />
                 <button>+</button>
