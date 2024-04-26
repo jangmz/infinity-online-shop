@@ -6,6 +6,7 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 
 function Root() {
   const location = useLocation()
+  const [cart, setCart] = useState([])
   const [numProducts, setNumProducts] = useState(0);
 
   const incrementNumProducts = () => {
