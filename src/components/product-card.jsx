@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
             </div>
             <button>Add to cart</button>
             <Link to="product-card-dialog">
-                <button>More information</button> {/* dialog window does not open -> no error */}
+                <button>More information</button>
             </Link>
         </div>
     )

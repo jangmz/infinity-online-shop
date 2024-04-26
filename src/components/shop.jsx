@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Outlet } from "react-router-dom"
 import ProductCard from "./product-card"
 import ErrorPage from "./error-page"
 
@@ -40,6 +41,7 @@ const Shop = () => {
     return (
         <div>
             <h1>Shop</h1>
+            <Outlet />
             {products.map(product => (
                 <ProductCard key={product.id} product={product} />
             ))}
