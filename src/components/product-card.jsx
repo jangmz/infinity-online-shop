@@ -3,6 +3,19 @@ import { Link, Outlet } from "react-router-dom"
 
 const ProductCard = ({ product }) => {
     const [moreInfo, setMoreInfo] = useState(false)
+    const [quantity, setQuantity] = useState(1)
+
+    const decrementQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity - 1)
+    }
+
+    const incrementQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity + 1)
+    }
+
+    const changeQuantity = (e) => {
+        setQuantity(parseInt(e.target.value))
+    }
 
     const toggleInfo = () => {
         setMoreInfo(prevMoreInfo => !prevMoreInfo)
@@ -22,9 +35,9 @@ const ProductCard = ({ product }) => {
                         implement state variable for quantity of each product
                     */
                 }
-                <button>-</button>
-                <input type="number" value="1" />
-                <button>+</button>
+                <button onClick={decrementQuantity}>-</button>
+                <input type="number" value={quantity} onChange={changeQuantity} />
+                <button onClick={incrementQuantity}>+</button>
             </div>
             <button>Add to cart</button>
             <button onClick={toggleInfo}>More information</button>
