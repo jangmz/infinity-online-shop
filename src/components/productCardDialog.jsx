@@ -1,4 +1,6 @@
 const ProductCardDialog = () => {
+
+    // use "context" to display needed data
     return (
         <dialog open>
             <p>Product dialog window</p>

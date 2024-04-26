@@ -41,7 +41,7 @@ const Shop = () => {
     return (
         <div>
             <h1>Shop</h1>
-            <Outlet />
+            <Outlet context={products}/> {/* what do I send to the dialog box? */}
             {products.map(product => (
                 <ProductCard key={product.id} product={product} />
             ))}
