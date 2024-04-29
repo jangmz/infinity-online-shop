@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react"
-import { useOutletContext } from "react-router-dom"
+import { useState, useEffect, useContext } from "react"
 import ProductCard from "./product-card"
 import ErrorPage from "./error-page"
 
@@ -7,14 +6,13 @@ const Shop = () => {
     const [products, setProducts] = useState([])
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [cart, setCart] = useOutletContext()
 
     // add sorting state and function that call the API -> has sorting feature
 
     // how will it be updated? receives a product? receives a new array that replaces old one?
     // what happens if items are removed not added? how to udpate that?
-    const cartUpdate = () => {
-        
+    const onAddToCart = (productID, quantity) => {
+        console.log("Add to cart products: "+ quantity +", ID: " + productID)
     }
 
     useEffect(() => {
@@ -51,7 +49,7 @@ const Shop = () => {
         <div>
             <h1>Shop</h1>
             {products.map(product => (
-                <ProductCard key={product.id} product={product} cart={cart} />
+                <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
             ))}
             
         </div>

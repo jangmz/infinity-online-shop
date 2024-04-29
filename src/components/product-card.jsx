@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Link, Outlet } from "react-router-dom"
 
-const ProductCard = ({ product }) => {
+// use onAddToCart as a event handler -> send productID and quantity to shop 
+// in "shop" add the product to the cart 
+const ProductCard = ({ product, onAddToCart}) => {
     const [moreInfo, setMoreInfo] = useState(false)
     const [quantity, setQuantity] = useState(1)
 
@@ -21,6 +22,11 @@ const ProductCard = ({ product }) => {
         setMoreInfo(prevMoreInfo => !prevMoreInfo)
     }
 
+    /*const handleAddToCart = (productID) => {
+        console.log("send product + quantity to shop component, ID: " + productID)
+        /* how to send it? -> call "onAddToCart" 
+    }*/
+
     return (
         <div className="product-card">
             <img src={product.image} style={{ height: "100px", width: "auto" }}/>
@@ -39,7 +45,7 @@ const ProductCard = ({ product }) => {
                 <input type="number" value={quantity} onChange={changeQuantity} />
                 <button onClick={incrementQuantity}>+</button>
             </div>
-            <button>Add to cart</button>
+            <button onClick={() => onAddToCart(product.id, quantity)}>Add to cart</button>
             <button onClick={toggleInfo}>More information</button>
         </div>
     )

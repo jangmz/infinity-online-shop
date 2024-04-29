@@ -1,12 +1,27 @@
-import { useState } from "react"
-import { useOutletContext } from "react-router-dom"
+import { useState, useContext, createContext } from "react"
+import { CartContext } from "../root"
 
-const Cart = () => { // receives cart from root
-    const [cart, setCart] = useOutletContext()
+const Cart = () => { 
+    // receives cart from root
+    const { cart, setCart } = useContext(CartContext)
     
     return (
         <div>
             <h1>Cart</h1>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                {cart.map((product) => (
+                    <tr>
+                        <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
+                        <td>{product.quantity}</td>
+                        <td>{product.price} €</td>
+                    </tr>
+                ))}
+            </table>
         </div>
     )
 }
