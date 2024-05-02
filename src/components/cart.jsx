@@ -4,6 +4,10 @@ import { CartContext } from "../root"
 const Cart = () => { 
     // receives cart from root
     const { cart, setCart } = useContext(CartContext)
+
+    const removeFromCart = (productID) => {
+        // to do...
+    }
     
     return (
         <div>
@@ -14,6 +18,7 @@ const Cart = () => {
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +27,7 @@ const Cart = () => {
                             <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
                             <td>{product.quantity}</td>
                             <td>{product.price} €</td>
+                            <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
                         </tr>
                     ))}
                 </tbody>

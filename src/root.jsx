@@ -9,7 +9,7 @@ export const CartContext = createContext()
 function Root() {
   const location = useLocation()
   const [cart, setCart] = useState([
-    {
+    /*{
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
@@ -21,7 +21,7 @@ function Root() {
           rate: 3.9,
           count: 120
       }
-    }
+    }*/
   ])
   const numProducts = cart.length
 

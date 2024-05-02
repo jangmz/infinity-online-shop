@@ -11,31 +11,29 @@ const Shop = () => {
 
     // add sorting state and function that call the API -> has sorting feature
 
-    // what happens if items are removed not added? how to udpate that?
-
-    // function adds product to the cart -> finds item via "productID"
     const onAddToCart = (productID, quantity) => {
-        const newCart = [...cart]
-        const Product = products.filter(product => product.id === productID)
-        const productToAdd = Product[0]
-        productToAdd.quantity = quantity
-
-        // if product is already in the cart -> not working as expected (products are duplicated)
-        if (newCart.includes(productToAdd)) {
-            newCart.map(product => {
-                if (product.id === productToAdd.id) {
-                    product.quantity += productToAdd.quantity
-                }
-            })
-        } else {
-            newCart.push(productToAdd)
+        const productToAdd = products.find(product => product.id === productID)
+        
+        // product not found
+        if (!productToAdd) {
+            alert("Product does not exist!")
+            return;
         }
 
-        setCart(newCart)    
-    }
+        // is product already in the cart
+        const existingProductIndex = cart.findIndex(product => product.id === productToAdd.id)
 
-    console.log("Cart (state):")
-    console.log(cart)
+        // update quantity if product is in the cart
+        if (existingProductIndex !== -1) {
+            const updatedCart = [...cart]
+            updatedCart[existingProductIndex].quantity += quantity
+            setCart(updatedCart)
+        } else {
+            // add it to the cart if it's not there yet
+            const updatedCart = [...cart, {...productToAdd, quantity }]
+            setCart(updatedCart)
+        }
+    }
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
