@@ -2,6 +2,7 @@ import { useState, createContext } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Link, Outlet, useLocation } from "react-router-dom"
+import "../src/style/root.css"
 //import './App.css'
 
 export const CartContext = createContext()
@@ -18,17 +19,22 @@ function Root() {
     <CartContext.Provider value={{cart, setCart}}>
       <div>
         <nav id="navigation-menu">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="shop">Shop</Link>
-            </li>
-            <li>
-              <Link to="cart">[Cart-icon] {numProducts}</Link>
-            </li>
-          </ul>
+          <div className='store-logo'>
+            <h1>Infinity Store</h1>
+          </div>
+          <div className='menu'>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="shop">Shop</Link>
+              </li>
+              <li>
+                <Link to="cart">[Cart-icon] {numProducts}</Link>
+              </li>
+            </ul>
+          </div>
         </nav>
         <div id="main-content">
           {!isSubRoute && (
