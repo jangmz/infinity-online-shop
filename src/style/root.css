@@ -42,3 +42,15 @@ body {
     color: black;
 }
 
+#main-content {
+    width: 100vw;
+}
+
+.shop-component {
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-component .shop-title {
+    text-align: center;
+}

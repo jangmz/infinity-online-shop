@@ -39,7 +39,10 @@ function Root() {
         <div id="main-content">
           {!isSubRoute && (
             <div className="home-page">
-              <h1>Home</h1>
+              <h1 className='home-title'>Home</h1>
+              <div className='home-component'>
+                
+              </div>
             </div>
           )}
 

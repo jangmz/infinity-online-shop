@@ -66,12 +66,13 @@ const Shop = () => {
     }
 
     return (
-        <div>
-            <h1>Shop</h1>
-            {products.map(product => (
-                <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
-            ))}
-            
+        <div className="shop-component">
+            <h1 className="shop-title">Shop</h1>
+            <div className="shop-products">
+                {products.map(product => (
+                    <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+                ))}
+            </div>           
         </div>
     )
 }
