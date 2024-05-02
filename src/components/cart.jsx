@@ -6,32 +6,38 @@ const Cart = () => {
     const { cart, setCart } = useContext(CartContext)
 
     const removeFromCart = (productID) => {
-        // to do...
+        const updatedCart = cart.filter(product => product.id !== productID)
+        setCart(updatedCart)
     }
     
     return (
         <div>
             <h1>Cart</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {cart.map((product, index) => (
-                        <tr key={index}>
-                            <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
-                            <td>{product.quantity}</td>
-                            <td>{product.price} €</td>
-                            <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {cart.length === 0 
+                ? <p>Your cart is empty.</p>
+                : (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cart.map((product, index) => (
+                                <tr key={index}>
+                                    <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
+                                    <td>{product.quantity}</td>
+                                    <td>{product.price} €</td>
+                                    <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
+            
         </div>
     )
 }
