@@ -9,18 +9,22 @@ const Cart = () => {
         <div>
             <h1>Cart</h1>
             <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                {cart.map((product) => (
+                <thead>
                     <tr>
-                        <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
-                        <td>{product.quantity}</td>
-                        <td>{product.price} €</td>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
                     </tr>
-                ))}
+                </thead>
+                <tbody>
+                    {cart.map((product, index) => (
+                        <tr key={index}>
+                            <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
+                            <td>{product.quantity}</td>
+                            <td>{product.price} €</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
     )

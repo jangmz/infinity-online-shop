@@ -11,18 +11,31 @@ const Shop = () => {
 
     // add sorting state and function that call the API -> has sorting feature
 
-    // how will it be updated? receives a product? receives a new array that replaces old one?
     // what happens if items are removed not added? how to udpate that?
 
     // function adds product to the cart -> finds item via "productID"
     const onAddToCart = (productID, quantity) => {
-        console.log("Add to cart products: "+ quantity +", ID: " + productID)
         const newCart = [...cart]
-        const ProductToAdd = products.filter(product => product.id === productID)
-        newCart.push(ProductToAdd[0])
-        console.log("Cart:")
-        console.log(newCart)
+        const Product = products.filter(product => product.id === productID)
+        const productToAdd = Product[0]
+        productToAdd.quantity = quantity
+
+        // if product is already in the cart -> not working as expected (products are duplicated)
+        if (newCart.includes(productToAdd)) {
+            newCart.map(product => {
+                if (product.id === productToAdd.id) {
+                    product.quantity += productToAdd.quantity
+                }
+            })
+        } else {
+            newCart.push(productToAdd)
+        }
+
+        setCart(newCart)    
     }
+
+    console.log("Cart (state):")
+    console.log(cart)
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
