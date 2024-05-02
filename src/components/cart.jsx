@@ -30,7 +30,7 @@ const Cart = () => {
                                 <tr key={index}>
                                     <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
                                     <td>{product.quantity}</td>
-                                    <td>{product.price} €</td>
+                                    <td>{product.price * product.quantity} €</td>
                                     <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
                                 </tr>
                             ))}
