@@ -45,8 +45,10 @@ const ProductCard = ({ product, onAddToCart}) => {
                 <input type="number" value={quantity} onChange={changeQuantity} />
                 <button onClick={incrementQuantity}>+</button>
             </div>
-            <button onClick={() => onAddToCart(product.id, quantity)}>Add to cart</button>
-            <button onClick={toggleInfo}>More information</button>
+            <div className="btn-product-section">
+                <button onClick={() => onAddToCart(product.id, quantity)}>Add to cart</button>
+                <button onClick={toggleInfo}>More information</button>
+            </div>
         </div>
     )
 }

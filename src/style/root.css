@@ -54,3 +54,66 @@ body {
 .shop-component .shop-title {
     text-align: center;
 }
+
+.shop-products {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.shop-products .product-card {
+    flex: 1;
+    min-width: 200px; /* ??? */
+    border: 1px solid rgb(191, 208, 255);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card > h3 {
+    text-align: center;
+}
+
+.product-card .quantity-section {
+    display: flex;
+    gap: 10px;
+}
+
+.quantity-section > button {
+    background-color: rgb(191, 208, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.quantity-section > input {
+    width: 40px;
+    text-align: center;
+}
+
+/* removes inner arrows in number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-section > button:hover {
+    cursor: pointer;
+    background-color: rgb(129, 162, 255);
+}
+
+.product-card .btn-product-section {
+
+}
+
+.product-card .btn-product-section:hover {
+    cursor: pointer;
+    background-color: rgb(129, 162, 255);
+}
