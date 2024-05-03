@@ -4,6 +4,8 @@ import { CartContext } from "../root"
 const Cart = () => { 
     // receives cart from root
     const { cart, setCart } = useContext(CartContext)
+    let totalPrice = 0
+    cart.map(product => totalPrice = product.price + totalPrice)
 
     const removeFromCart = (productID) => {
         const updatedCart = cart.filter(product => product.id !== productID)
@@ -43,7 +45,7 @@ const Cart = () => {
                             </tbody>
                         </table>
                 )}
-            </div>            
+            </div>      
         </div>
     )
 }
