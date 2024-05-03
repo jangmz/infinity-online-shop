@@ -11,15 +11,15 @@ const Cart = () => {
     }
     
     return (
-        <div>
+        <div className="cart">
             <h1 className="cart-title">Cart</h1>
             <div className="cart-component">
                 {cart.length === 0 
-                    ? <p>Your cart is empty.</p>
+                    ? <p className="empty-cart-msg">Your cart is empty.</p>
                     : (
-                        <table>
+                        <table className="cart-table">
                             <thead>
-                                <tr>
+                                <tr className="cart-table-header-row">
                                     <th>Product</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -28,8 +28,13 @@ const Cart = () => {
                             </thead>
                             <tbody>
                                 {cart.map((product, index) => (
-                                    <tr key={index}>
-                                        <td><img src={product.image} style={{ height: "100px", width: "auto" }} />{product.title}</td>
+                                    <tr key={index} className="cart-table-product-row">
+                                        <td>
+                                            <div className="cart-table-product-details">
+                                                <img src={product.image} style={{ height: "100px", width: "auto" }} />
+                                                <p>{product.title}</p>
+                                            </div>
+                                        </td>
                                         <td>{product.quantity}</td>
                                         <td>{product.price * product.quantity} €</td>
                                         <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
