@@ -86,6 +86,11 @@ body {
 }
 
 .quantity-section > button {
+    font-size: 18px;
+}
+
+.quantity-section > button,
+.btn-product-section > button {
     background-color: rgb(191, 208, 255);
     border: none;
     border-radius: 5px;
@@ -104,16 +109,23 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.btn-product-section > button {
+    background-color: rgb(224, 165, 87);
+    padding: 10px 20px;
+}
+
 .quantity-section > button:hover {
     cursor: pointer;
     background-color: rgb(129, 162, 255);
 }
 
 .product-card .btn-product-section {
-
+    display: flex;
+    gap: 30px;
 }
 
-.product-card .btn-product-section:hover {
+.product-card .btn-product-section > button:hover {
     cursor: pointer;
-    background-color: rgb(129, 162, 255);
+    background-color: rgb(230, 149, 44);
+    box-shadow: 0 0 5px black;
 }
