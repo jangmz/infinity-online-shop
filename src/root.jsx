@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Link, Outlet, useLocation } from "react-router-dom"
 import "../src/style/root.css"
-//import './App.css'
+import Icon from "@mdi/react"
+import { mdiCart } from "@mdi/js"
 
 export const CartContext = createContext()
 
@@ -31,7 +32,7 @@ function Root() {
                 <Link to="shop">Shop</Link>
               </li>
               <li>
-                <Link to="cart">[Cart-icon] {numProducts}</Link>
+                <Link to="cart"><Icon path={mdiCart} size={1} /> {numProducts}</Link>
               </li>
             </ul>
           </div>
