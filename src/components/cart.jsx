@@ -1,15 +1,25 @@
-import { useState, useContext, createContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../root"
+import { Navigate, useNavigate } from "react-router-dom"
 
 const Cart = () => { 
     // receives cart from root
     const { cart, setCart } = useContext(CartContext)
+    const navigate = useNavigate()
     let totalPrice = 0
+
     cart.map(product => totalPrice = product.price + totalPrice)
 
     const removeFromCart = (productID) => {
         const updatedCart = cart.filter(product => product.id !== productID)
         setCart(updatedCart)
+    }
+
+    const buy = () => {
+        console.log("Products bought.")
+        setCart([]);
+        //navigate("/cart/thank-you")
+        return <Navigate to="/cart/thank-you" />
     }
     
     return (
@@ -50,7 +60,6 @@ const Cart = () => {
                                     <button onClick={buy}>Checkout</button>
                             </div>
                         </>
-                        
                 )}
             </div>      
         </div>

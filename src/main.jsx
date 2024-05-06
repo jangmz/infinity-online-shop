@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client'
 import Root from './root.jsx'
 import Shop from "./components/shop.jsx"
 import ErrorPage from "./components/error-page.jsx"
-//import './index.css'
 import Cart from './components/cart.jsx'
+import ThankYou from './components/thank-you.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,13 @@ const router = createBrowserRouter([
       },
       {
         path:"cart",
-        element: <Cart />
+        element: <Cart />,
+        children: [
+          {
+            path: "thank-you",
+            element: <ThankYou />,
+          }
+        ]
       }
     ]
   },
