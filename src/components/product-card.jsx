@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-// use onAddToCart as a event handler -> send productID and quantity to shop 
-// in "shop" add the product to the cart 
 const ProductCard = ({ product, onAddToCart}) => {
     const [moreInfo, setMoreInfo] = useState(false)
     const [quantity, setQuantity] = useState(1)
@@ -22,11 +20,6 @@ const ProductCard = ({ product, onAddToCart}) => {
         setMoreInfo(prevMoreInfo => !prevMoreInfo)
     }
 
-    /*const handleAddToCart = (productID) => {
-        console.log("send product + quantity to shop component, ID: " + productID)
-        /* how to send it? -> call "onAddToCart" 
-    }*/
-
     return (
         <div className="product-card">
             <img src={product.image} style={{ height: "100px", width: "auto" }}/>
@@ -34,13 +27,6 @@ const ProductCard = ({ product, onAddToCart}) => {
             {moreInfo && <p>{product.description}</p>}
             <p>{product.price}€</p>
             <div className="quantity-section">
-                {
-                    /* 
-                        implement calling to update state in root
-                                +
-                        implement state variable for quantity of each product
-                    */
-                }
                 <button onClick={decrementQuantity}>-</button>
                 <input type="number" value={quantity} onChange={changeQuantity} />
                 <button onClick={incrementQuantity}>+</button>

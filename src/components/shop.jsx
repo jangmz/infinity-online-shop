@@ -9,8 +9,6 @@ const Shop = () => {
     const [loading, setLoading] = useState(true)
     const { cart, setCart } = useContext(CartContext)
 
-    // add sorting state and function that call the API -> has sorting feature
-
     const onAddToCart = (productID, quantity) => {
         const productToAdd = products.find(product => product.id === productID)
         

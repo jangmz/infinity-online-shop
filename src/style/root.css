@@ -60,8 +60,6 @@ body {
 }
 
 .shop-products {
-    /*margin-left: 10%;
-    margin-right: 10%;*/
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
@@ -92,9 +90,11 @@ body {
     font-size: 18px;
 }
 
+/* button styling - basic */
 .quantity-section > button,
 .btn-product-section > button,
-.cart-table-product-row > td > button {
+.cart-table-product-row > td > button,
+.cart-checkout > button {
     background-color: rgb(191, 208, 255);
     border: none;
     border-radius: 5px;
@@ -114,8 +114,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* button styling - color */
 .btn-product-section > button,
-.cart-table-product-row > td > button {
+.cart-table-product-row > td > button,
+.cart-checkout > button {
     background-color: rgb(224, 165, 87);
     padding: 10px 20px;
 }
@@ -130,8 +132,10 @@ input::-webkit-inner-spin-button {
     gap: 30px;
 }
 
+/* button styling - hover */
 .product-card .btn-product-section > button:hover,
-.cart-table-product-row > td > button:hover {
+.cart-table-product-row > td > button:hover,
+.cart-checkout > button:hover {
     cursor: pointer;
     background-color: rgb(230, 149, 44);
     box-shadow: 0 0 5px black;
@@ -181,4 +185,18 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.cart-checkout {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.cart-checkout > button {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 30px;
 }

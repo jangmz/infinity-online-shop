@@ -19,31 +19,38 @@ const Cart = () => {
                 {cart.length === 0 
                     ? <p className="empty-cart-msg">Your cart is empty.</p>
                     : (
-                        <table className="cart-table">
-                            <thead>
-                                <tr className="cart-table-header-row">
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {cart.map((product, index) => (
-                                    <tr key={index} className="cart-table-product-row">
-                                        <td>
-                                            <div className="cart-table-product-details">
-                                                <img src={product.image} style={{ height: "100px", width: "auto" }} />
-                                                <p>{product.title}</p>
-                                            </div>
-                                        </td>
-                                        <td>{product.quantity}</td>
-                                        <td>{product.price * product.quantity} €</td>
-                                        <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
+                        <>
+                            <table className="cart-table">
+                                <thead>
+                                    <tr className="cart-table-header-row">
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {cart.map((product, index) => (
+                                        <tr key={index} className="cart-table-product-row">
+                                            <td>
+                                                <div className="cart-table-product-details">
+                                                    <img src={product.image} style={{ height: "100px", width: "auto" }} />
+                                                    <p>{product.title}</p>
+                                                </div>
+                                            </td>
+                                            <td>{product.quantity}</td>
+                                            <td>{product.price * product.quantity}€</td>
+                                            <td><button onClick={() => removeFromCart(product.id)}>Remove Item</button></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <div className="cart-checkout">
+                                    <p>Total price: <strong>{totalPrice}€</strong></p>
+                                    <button onClick={buy}>Checkout</button>
+                            </div>
+                        </>
+                        
                 )}
             </div>      
         </div>
