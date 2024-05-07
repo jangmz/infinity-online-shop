@@ -5,6 +5,7 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 import "../src/style/root.css"
 import Icon from "@mdi/react"
 import { mdiCart } from "@mdi/js"
+import homeBanner from "./assets/home-banner.jpg"
 
 export const CartContext = createContext()
 
@@ -18,10 +19,10 @@ function Root() {
 
   return (
     <CartContext.Provider value={{cart, setCart}}>
-      <div>
+      <div id='container'>
         <nav id="navigation-menu">
           <div className='store-logo'>
-            <h1>Infinity Store</h1>
+            <h1><Link to="/">Infinity Store</Link></h1>
           </div>
           <div className='menu'>
             <ul>
@@ -40,15 +41,24 @@ function Root() {
         <div id="main-content">
           {!isSubRoute && (
             <div className="home-page">
-              <h1 className='home-title'>Home</h1>
               <div className='home-component'>
-                
+                <div className='banner'>
+                  <h1 className='banner-title'>Infinite choices.</h1>
+                  <button><Link to="shop">Start shopping</Link></button>
+                </div>
+                <div className='home-categories'>
+                  
+                </div>                  
               </div>
             </div>
           )}
 
           <Outlet />
         </div>
+        <footer>
+          <p>Created by <a href="https://github.com/jangmz/">jangmz</a> for The Odin Project &copy; 2024</p>
+          <p>Disclaimer: This page is not a real online store and is not intended to sell products.</p>
+        </footer>
       </div>
     </CartContext.Provider>
   )
