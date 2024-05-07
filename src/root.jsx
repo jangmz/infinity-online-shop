@@ -5,7 +5,10 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 import "../src/style/root.css"
 import Icon from "@mdi/react"
 import { mdiCart } from "@mdi/js"
-import homeBanner from "./assets/home-banner.jpg"
+import clothingThumb from "./assets/clothing.jpg"
+import accessoryThumb from "./assets/accessory.jpg"
+import gadgetsThumb from "./assets/gadgets.jpg"
+import partsThumb from "./assets/parts.jpg"
 
 export const CartContext = createContext()
 
@@ -47,7 +50,26 @@ function Root() {
                   <button><Link to="shop">Start shopping</Link></button>
                 </div>
                 <div className='home-categories'>
-                  
+                  <h2>Categories</h2>
+                  <p>We sell clothing for men and women, fashion accessories, tech gadgets, computer parts and much more.</p>
+                  <div className='category-groups'>
+                    <div className='clothing'>
+                      <img src={clothingThumb} />
+                      <p>Super comfortable clothes for all occasions.</p>
+                    </div>
+                    <div className='accessories'>
+                      <img src={accessoryThumb} />
+                      <p>Level up your gashion with our amazing pool of accessories.</p>
+                    </div>
+                    <div className='gadgets'>
+                      <img src={gadgetsThumb} />
+                      <p>Tech gadgets for every tech enthusiast.</p>
+                    </div>
+                    <div className='parts'>
+                      <img src={partsThumb} />
+                      <p>Get everything you need for your next dream gaming build.</p>
+                    </div>
+                  </div>
                 </div>                  
               </div>
             </div>
