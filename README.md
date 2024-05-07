@@ -1,5 +1,5 @@
 # Infinity Online Shop
-Aplication preview: [Infinity Online Shop](https://github.com/jangmz/infinity-online-shop)
+Aplication preview: [Infinity Online Shop](https://infinity-online-shop.netlify.app)
 
 ## Description
 This is a web application mimicking an online shop. It fetches product data from an API and displays them in the "Shop" page. You can change the quantity and add products to the cart. Products that are in the cart can be removed or "bought". This project was focused on getting familiar with creating a React app (creating components, managing state, routing,...). No framework was used for CSS.
